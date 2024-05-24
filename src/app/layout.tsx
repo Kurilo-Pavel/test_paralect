@@ -1,9 +1,9 @@
 import type {Metadata} from "next";
 import "./globals.css";
-import "../../node_modules/@mantine/core/styles.css";
-import "../../node_modules/@mantine/dates/styles.css";
+import "@mantine/core/styles.css";
+import "@mantine/dates/styles.css";
 import React from "react";
-import {ColorSchemeScript, MantineProvider} from "../../node_modules/@mantine/core";
+import {ColorSchemeScript, MantineProvider} from "@mantine/core";
 import App from "@/app/App";
 import {StoreProvider} from "@/app/store/Storeprovider";
 
