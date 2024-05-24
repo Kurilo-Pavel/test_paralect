@@ -26,13 +26,13 @@ const MyNumberInput = (
     placeholder
   }: MyNumberInputProps) => {
   const dispatch = useAppDispatch();
-  const handleClick = (e) => {
-    onChange(e);
+  const handleClick = (e:number|string|React.ChangeEvent<HTMLInputElement>) => {
+    onChange(e as React.ChangeEvent<HTMLInputElement>);
     if (type === "from") {
-      dispatch(setRatingFrom(e));
+      dispatch(setRatingFrom(Number(e)));
     }
     if (type === "to") {
-      dispatch(setRatingTo(e));
+      dispatch(setRatingTo(Number(e)));
     }
   };
   return (

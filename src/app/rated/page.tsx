@@ -6,10 +6,26 @@ import {useEffect, useState} from "react";
 import {useAppSelector} from "@/app/store/hooks";
 import RatedEmpty from "@/app/components/RatedEmpty";
 
+type DataMovie = {
+  id: number;
+  original_title: string;
+  poster_path: string;
+  release_date: string;
+  vote_average: number;
+  vote_count: number;
+  genre_ids: number[];
+}[];
 
 const Page = () => {
   const isModal = useAppSelector(state => state.movie.isModal);
-  const [allRatedMovies, setAllRatedMovies] = useState([]);
+  const [allRatedMovies, setAllRatedMovies] = useState<DataMovie>([{
+    id: 0, original_title: "",
+    poster_path: "",
+    release_date: "",
+    vote_average: 0,
+    vote_count: 0,
+    genre_ids: [0]
+  }]);
   const [value, setValue] = useState("");
   const countMovie = 2;
   const [pageRated, setPageRated] = useState(1);
@@ -17,7 +33,10 @@ const Page = () => {
   const movieRating = allRatedMovies.filter((_, index) => (index >= countMovie * (pageRated - 1)) && (index < countMovie * pageRated));
 
   useEffect(() => {
-    setAllRatedMovies(JSON.parse(localStorage.getItem("rating")));
+    const dataLocal = localStorage.getItem("rating");
+    if (dataLocal) {
+      setAllRatedMovies(JSON.parse(dataLocal));
+    }
     if (pages < pageRated) {
       setPageRated(pages);
     }
@@ -27,13 +46,17 @@ const Page = () => {
   }, [isModal]);
 
   const choseMovie = () => {
-    setAllRatedMovies(JSON.parse(localStorage.getItem("rating")).filter(movie => {
-      const movieName = movie.original_title.toLowerCase();
-      const userValue = value.toLowerCase();
-      if (movieName.includes(userValue)) {
-        return movie;
-      }
-    }));
+    const dataLocal = localStorage.getItem("rating");
+    if (dataLocal) {
+      const dataMovie = JSON.parse(dataLocal) as DataMovie;
+      setAllRatedMovies(dataMovie.filter(movie => {
+        const movieName = movie.original_title.toLowerCase();
+        const userValue = value.toLowerCase();
+        if (movieName.includes(userValue)) {
+          return movie;
+        }
+      }));
+    }
   };
 
   return (<>
@@ -74,7 +97,7 @@ const Page = () => {
             }/>
         </SimpleGrid>
         <Flex direction="column" gap="24px" align="center">
-          <BlockCards open={open} cards={movieRating}/>
+          <BlockCards cards={movieRating}/>
           {pages > 1 && <MyPagination
             page={pageRated}
             setPageRated={setPageRated}

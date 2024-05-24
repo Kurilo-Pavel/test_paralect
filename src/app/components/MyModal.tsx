@@ -16,34 +16,40 @@ const MyModal = () => {
   };
 
   const handleSave = () => {
-    const copyData = Object.assign({},dataMovie);
+    const copyData = Object.assign({}, dataMovie, {rating: 0});
     if (!localStorage.getItem("rating")) {
       copyData.rating = value;
       localStorage.setItem("rating", JSON.stringify([copyData]));
     } else {
-      const userRatings = JSON.parse(localStorage.getItem("rating"));
-      if (userRatings.some(value => value.id === dataMovie.id)) {
-        const newUserRatings = userRatings.map(data => {
-          if (data.id === dataMovie.id) {
-            copyData.rating=value;
-            return copyData;
-          } else {
-            return data;
-          }
-        });
-        localStorage.setItem("rating", JSON.stringify(newUserRatings));
-      } else {
-        copyData.rating=value;
-        localStorage.setItem("rating", JSON.stringify([...userRatings, copyData]));
+      const localData = localStorage.getItem("rating");
+      if (localData) {
+        const userRatings = JSON.parse(localData) as { id: number }[];
+        if (userRatings.some(value => value.id === dataMovie.id)) {
+          const newUserRatings = userRatings.map(data => {
+            if (data.id === dataMovie.id) {
+              copyData.rating = value;
+              return copyData;
+            } else {
+              return data;
+            }
+          });
+          localStorage.setItem("rating", JSON.stringify(newUserRatings));
+        } else {
+          copyData.rating = value;
+          localStorage.setItem("rating", JSON.stringify([...userRatings, copyData]));
+        }
       }
     }
   };
 
   const handleRemove = () => {
-    const userRatings = JSON.parse(localStorage.getItem("rating"));
-    if (userRatings.some(data => data.id === dataMovie.id)) {
-      const newUserRating = userRatings.filter(data => data.id != dataMovie.id);
-      localStorage.setItem("rating", JSON.stringify(newUserRating));
+    const localData = localStorage.getItem("rating");
+    if (localData) {
+      const userRatings = JSON.parse(localData) as {id:number}[];
+      if (userRatings.some(data => data.id === dataMovie.id)) {
+        const newUserRating = userRatings.filter(data => data.id != dataMovie.id);
+        localStorage.setItem("rating", JSON.stringify(newUserRating));
+      }
     }
   };
 
@@ -77,13 +83,13 @@ const MyModal = () => {
           </Flex>
           <Flex direction="row">
             <Button
-              padding="10px 20px"
+              p="10px 20px"
               radius="8px"
               color="var(--purple_500_main)"
               onClick={handleSave}
             >Save</Button>
             <Button
-              padding="10px 20px"
+              p="10px 20px"
               radius="8px"
               variant="transparent"
               color="var(--purple_500_main)"

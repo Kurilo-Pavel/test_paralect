@@ -13,7 +13,7 @@ const NotFound = () => {
         <Image src="../not-found.png" alt="not found" w="650px"/>
         <Text fw="600" size="20px" c="var(--black)">We can’t find the page you are looking for</Text>
         <Button
-          padding="10px 20px"
+          p="10px 20px"
           radius="8px"
           color="var(--purple_500_main)"
           onClick={handleClick}

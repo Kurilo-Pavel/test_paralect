@@ -2,18 +2,18 @@ import {Flex, Image, Text, ThemeIcon, Box} from '@mantine/core';
 import {useRouter} from "next/navigation";
 import {useAppDispatch, useAppSelector} from "@/app/store/hooks";
 import {setDataMovie, setModal} from "@/app/store/movie/movieSlice";
-import {useEffect, useState} from "react";
+import React, {MouseEventHandler, useEffect, useState} from "react";
 
 type MyCardProps = {
   height?: string;
   bigCard: boolean;
-  id?: number;
+  id: number;
   original_title: string;
   poster_path: string;
   release_date: string;
   vote_average: number;
   vote_count: number;
-  genre_ids?: number[];
+  genre_ids: number[];
   runtime?: number;
   budget?: number;
   revenue?: number;
@@ -45,8 +45,9 @@ const MyCard = (
   const widthImage = bigCard ? "250px" : "119px";
 
   useEffect(() => {
-    if (localStorage.getItem("rating")) {
-      const movieRating = JSON.parse(localStorage.getItem("rating"));
+    const rating = localStorage.getItem("rating")
+    if (rating) {
+      const movieRating = JSON.parse(rating) as {id:number,rating:number}[];
       if (movieRating.some(value => value.id === id)) {
         setIsRating(true);
         movieRating.forEach(value => {
@@ -91,7 +92,7 @@ const MyCard = (
     }
   ] : [{title: "Genres", content: getNameGenre()?.join(", ")}];
 
-  const handleClick = (e) => {
+  const handleClick:MouseEventHandler<HTMLDivElement> = (e) => {
     e.stopPropagation();
     dispatch(setModal(true));
     dispatch(setDataMovie(

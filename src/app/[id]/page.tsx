@@ -33,7 +33,7 @@ const Page = ({params}: { params: { id: string } }) => {
           separator: {color: "var(--purple_500_main)"}
         }}>{items}</Breadcrumbs>
         <MyCard
-          id={id * 1}
+          id={Number(id)}
           height="352px"
           bigCard={true}
           original_title={movieInform.original_title}
@@ -44,6 +44,7 @@ const Page = ({params}: { params: { id: string } }) => {
           runtime={movieInform.runtime}
           budget={movieInform.budget}
           revenue={movieInform.revenue}
+          genre_ids={movieInform.genres.map(value=>value.id)}
         />
         <MovieInform
           overview={movieInform.overview}

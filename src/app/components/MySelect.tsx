@@ -1,4 +1,4 @@
-import {Select,Image} from '@mantine/core';
+import {Select, Image} from '@mantine/core';
 import React, {useState} from "react";
 import {useAppDispatch} from "@/app/store/hooks";
 import {setSort, setReleaseYear, setPage} from "@/app/store/movie/movieSlice";
@@ -26,14 +26,16 @@ const MySelect = (
   }: MySelectProps) => {
   const dispatch = useAppDispatch();
   const [select, setSelect] = useState(false);
-  const handleClick = (e) => {
-    if (type === "sort") {
-      dispatch(setSort(e));
-      dispatch(setPage(1));
-    }
-    if (type === "year" && onChange) {
-      dispatch(setReleaseYear(e));
-      onChange(e);
+  const handleClick = (e: string|null) => {
+    if (e !== null) {
+      if (type === "sort") {
+        dispatch(setSort(e));
+        dispatch(setPage(1));
+      }
+      if (type === "year" && onChange) {
+        dispatch(setReleaseYear(e));
+        onChange(e as any);
+      }
     }
   };
 
@@ -48,18 +50,17 @@ const MySelect = (
       styles={{
         root: {minWidth: minWidth},
         label: {paddingBottom: labelPadding, fontWeight: 700, letterSpacing: "0.3px"},
-        pill: {background: "none"},
         dropdown: {borderRadius: "8px", background: "var(--white)", border: 0},
         input: {padding: "6px 10px", gap: "5px"},
-        inputField: {letterSpacing: "-0.9px"},
-        pillsList: {gap: "5px"},
-        rightSection: {left: "-2px"}
+        // inputField: {letterSpacing: "-0.9px"},
+        // pillsList: {gap: "5px"},
+        // rightSection: {left: "-2px"}
       }}
       classNames={{
-        pill: "myMultiSelectPill",
+        // pill: "myMultiSelectPill",
         input: "myMultiSelectInput",
         option: "myMultiSelectOption",
-        pillsList: "myMultiSelectPillsList",
+        // pillsList: "myMultiSelectPillsList",
         section: "myMultiSelectSection",
       }}
       checkIconPosition="right"

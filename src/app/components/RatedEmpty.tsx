@@ -12,7 +12,7 @@ const RatedEmpty = () => {
         <Image src="./empty-rated.png" alt="not found" w="400px"/>
         <Text fw="600" size="20px" c="var(--black)">You haven&apos;t rated any films yet</Text>
         <Button
-          padding="10px 20px"
+          p="10px 20px"
           radius="8px"
           color="var(--purple_500_main)"
           onClick={handleClick}

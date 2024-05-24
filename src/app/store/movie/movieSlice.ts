@@ -7,7 +7,7 @@ type Movies = {
   page: number;
   sort: string;
   selectGenres: string[];
-  releaseYear: string | null;
+  releaseYear: string ;
   ratingFrom: number | string;
   ratingTo: number | string;
   loader: boolean;
@@ -102,7 +102,7 @@ const initialState: Movies = {
   page: 1,
   sort: "Most Popular",
   selectGenres: [],
-  releaseYear: null,
+  releaseYear: "",
   ratingFrom: "",
   ratingTo: "",
   loader: false,
@@ -163,10 +163,10 @@ const movieSlice = createSlice({
     setReleaseYear: (state: { releaseYear: string }, action: PayloadAction<string>) => {
       state.releaseYear = action.payload;
     },
-    setRatingFrom: (state: { ratingFrom: number | string }, action: PayloadAction<number>) => {
+    setRatingFrom: (state: { ratingFrom: number | string }, action: PayloadAction<number|string>) => {
       state.ratingFrom = action.payload;
     },
-    setRatingTo: (state: { ratingTo: number | string }, action: PayloadAction<number>) => {
+    setRatingTo: (state: { ratingTo: number | string }, action: PayloadAction<number|string>) => {
       state.ratingTo = action.payload;
     },
     setError: (state: { error: boolean }, action: PayloadAction<boolean>) => {
@@ -198,7 +198,7 @@ const movieSlice = createSlice({
       if (action.payload.error) {
         state.movieInform.error = true;
       }
-      if(!action.payload.error){
+      if (!action.payload.error) {
         state.movieInform = action.payload;
       }
       state.loader = false;

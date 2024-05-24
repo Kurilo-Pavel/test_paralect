@@ -20,9 +20,9 @@ import MySelect from "@/app/components/MySelect";
 
 interface FormValues {
   genre: string[],
-  releaseYear: string | null,
-  ratingFrom: number | null | string,
-  ratingTo: number | null,
+  releaseYear: string,
+  ratingFrom: number | string,
+  ratingTo: number | string,
 }
 
 const Movies = () => {
@@ -30,7 +30,7 @@ const Movies = () => {
   const data = useAppSelector(state => state.movie);
   const years = [...Array(200)].map((_, index) => (2026 - index).toString());
 
-  const form = useForm<FormValues>({
+  const form:any = useForm <FormValues>({
     mode: "uncontrolled",
     validateInputOnBlur: true,
     validateInputOnChange: true,
@@ -92,8 +92,12 @@ const Movies = () => {
         <form
           className="searchForm"
         >
-          <Grid gap="16px" w="100%" align="flex-end">
-            <Grid.Col span={"auto"}>
+          <Grid
+            // gap="16px"
+            w="100%"
+            align="flex-end"
+          >
+            <Grid.Col span={"auto"} mr="16px">
               <Dropdown
                 label="Genres"
                 placeholder="Select genre"
@@ -105,7 +109,7 @@ const Movies = () => {
                 defaultValue={data.selectGenres}
               />
             </Grid.Col>
-            <Grid.Col span={"auto"}>
+            <Grid.Col span={"auto"} mr="16px">
               <MySelect
                 key={form.key("releaseYear")}
                 {...form.getInputProps("releaseYear")}
@@ -123,7 +127,7 @@ const Movies = () => {
                 gap="8px"
                 align="flex-end"
                 classNames={{
-                  root:"wrapperNumberInput"
+                  root: "wrapperNumberInput"
                 }}
               >
                 <MyNumberInput
@@ -143,7 +147,7 @@ const Movies = () => {
                 />
               </Flex>
             </Grid.Col>
-          </Grid>
+          </Grid >
           <Button
             variant="transparent"
             color="var(--purple_500_main)"
@@ -153,11 +157,11 @@ const Movies = () => {
             p={0}
             fw={500}
             onClick={() => {
-              dispatch(setReleaseYear(null));
+              dispatch(setReleaseYear(""));
               dispatch(setGenres([]));
               dispatch(setRatingFrom(""));
               dispatch(setRatingTo(""));
-              form.setValues({genre: [], releaseYear: null, ratingFrom: "", ratingTo: ""})
+              form.setValues({genre: [], releaseYear: "", ratingFrom: "", ratingTo: ""})
             }}
             styles={{
               root: {

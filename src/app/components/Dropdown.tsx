@@ -9,7 +9,7 @@ type DropdownProps = {
   placeholder: string;
   minWidth: string;
   labelPadding: string;
-  defaultValue:string[];
+  defaultValue: string[];
   onChange?: (event: React.ChangeEvent<HTMLInputElement>) => void
   setSort?: (value: string[]) => void;
 }
@@ -25,13 +25,13 @@ const Dropdown = (
     }:
       DropdownProps
   ) => {
-const dispatch = useAppDispatch();
+    const dispatch = useAppDispatch();
     const [select, setSelect] = useState(false);
 
-    const handleClick = (e:any) => {
+    const handleClick = (e: string[] | React.ChangeEvent<HTMLInputElement>) => {
       if (onChange) {
-        onChange(e);
-        dispatch(setGenres(e));
+        onChange(e as React.ChangeEvent<HTMLInputElement>);
+        dispatch(setGenres(e as string[]));
       }
     };
     return (

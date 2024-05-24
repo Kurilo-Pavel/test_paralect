@@ -1,6 +1,7 @@
 import {Pagination} from '@mantine/core';
 import {useAppDispatch} from "@/app/store/hooks";
 import {setPage} from "@/app/store/movie/movieSlice";
+import {MouseEventHandler} from "react";
 
 type MyPaginationProps = {
   pages: number;
@@ -11,7 +12,7 @@ type MyPaginationProps = {
 
 const MyPagination = ({pages, type, page, setPageRated}: MyPaginationProps) => {
   const dispatch = useAppDispatch();
-  const handleClick = (e) => {
+  const handleClick = (e:number) => {
     if (type === "movies") {
       dispatch(setPage(e));
     }
