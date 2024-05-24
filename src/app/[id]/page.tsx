@@ -10,11 +10,11 @@ import NotFound from "@/app/not-found"
 const Page = ({params}: { params: { id: string } }) => {
   const dispatch = useAppDispatch();
   const movieInform = useAppSelector(state => state.movie.movieInform);
-  const id = decodeURI(params.id)*1;
+  const id = (decodeURI(params.id) * 1) as number;
 
   useEffect(() => {
     dispatch(getMovie(id));
-  }, [dispatch,id]);
+  }, [dispatch, id]);
 
   const items = [
     {title: "Movies", href: "./"},
@@ -29,28 +29,28 @@ const Page = ({params}: { params: { id: string } }) => {
     <Flex direction="column" gap="20px" p="0 90px">
       {movieInform.original_title && <>
         <Breadcrumbs styles={{
-        breadcrumb: {color: "var(--purple_500_main)"},
-        separator: {color: "var(--purple_500_main)"}
-      }}>{items}</Breadcrumbs>
-      <MyCard
-        id={id*1}
-        height="352px"
-        bigCard={true}
-        original_title={movieInform.original_title}
-        poster_path={movieInform.poster_path}
-        release_date={movieInform.release_date}
-        vote_average={movieInform.vote_average}
-        vote_count={movieInform.vote_count}
-        genres={movieInform.genres}
-        runtime={movieInform.runtime}
-        budget={movieInform.budget}
-        revenue={movieInform.revenue}
-      />
-      <MovieInform
-        overview={movieInform.overview}
-        production_companies={movieInform.production_companies}
-        videos={movieInform.videos}
-      />
+          breadcrumb: {color: "var(--purple_500_main)"},
+          separator: {color: "var(--purple_500_main)"}
+        }}>{items}</Breadcrumbs>
+        <MyCard
+          id={id * 1}
+          height="352px"
+          bigCard={true}
+          original_title={movieInform.original_title}
+          poster_path={movieInform.poster_path}
+          release_date={movieInform.release_date}
+          vote_average={movieInform.vote_average}
+          vote_count={movieInform.vote_count}
+          genres={movieInform.genres}
+          runtime={movieInform.runtime}
+          budget={movieInform.budget}
+          revenue={movieInform.revenue}
+        />
+        <MovieInform
+          overview={movieInform.overview}
+          production_companies={movieInform.production_companies}
+          videos={movieInform.videos}
+        />
       </>}
       {movieInform.error && <NotFound/>}
     </Flex>
