@@ -41,7 +41,6 @@ const Page = ({params}: { params: { id: string } }) => {
           release_date={movieInform.release_date}
           vote_average={movieInform.vote_average}
           vote_count={movieInform.vote_count}
-          genres={movieInform.genres}
           runtime={movieInform.runtime}
           budget={movieInform.budget}
           revenue={movieInform.revenue}
