@@ -1,5 +1,5 @@
 "use client";
-import {Flex, Avatar, Text, NavLink, Space, rem} from '@mantine/core';
+import {Flex, Avatar, Text, NavLink, Space} from '@mantine/core';
 import {useEffect, useState} from "react";
 import {usePathname, useRouter} from "next/navigation";
 

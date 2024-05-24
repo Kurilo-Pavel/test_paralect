@@ -1,8 +1,7 @@
 import {NumberInput} from '@mantine/core';
 import React from "react";
 import {useAppDispatch} from "@/app/store/hooks";
-import {setModal, setRatingFrom, setRatingTo} from "@/app/store/movie/movieSlice";
-import {type} from "os";
+import {setRatingFrom, setRatingTo} from "@/app/store/movie/movieSlice";
 
 type MyNumberInputProps = {
   label?: string;

@@ -3,7 +3,6 @@ import {useRouter} from "next/navigation";
 import {useAppDispatch, useAppSelector} from "@/app/store/hooks";
 import {setDataMovie, setModal} from "@/app/store/movie/movieSlice";
 import {useEffect, useState} from "react";
-import movieInform from "@/app/components/MovieInform";
 
 type MyCardProps = {
   height?: string;

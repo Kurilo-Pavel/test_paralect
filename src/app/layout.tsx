@@ -1,5 +1,5 @@
 import type {Metadata} from "next";
-import "./globals.css";
+import "@globals.css";
 import "@mantine/core/styles.css";
 import React from "react";
 import {ColorSchemeScript, MantineProvider} from "@mantine/core";

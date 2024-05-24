@@ -1,4 +1,4 @@
-import {Modal, Text, Flex, ThemeIcon, Image, Button, Rating} from '@mantine/core';
+import {Modal, Text, Flex, Button, Rating} from '@mantine/core';
 import {useState} from "react";
 import {useAppDispatch, useAppSelector} from "@/app/store/hooks";
 import {setModal} from "@/app/store/movie/movieSlice";

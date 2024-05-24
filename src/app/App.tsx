@@ -1,4 +1,4 @@
-'use client'
+"use client"
 import {AppShell, Burger,Loader, rem} from '@mantine/core';
 import Navbar from "@/app/components/Navbar";
 import MyModal from "@/app/components/MyModal";
