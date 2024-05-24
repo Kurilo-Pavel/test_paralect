@@ -1,14 +1,11 @@
 'use client'
-import '@mantine/core/styles.css';
-import "@/app/globals.css"
-import {AppShell, Burger, rem} from '@mantine/core';
+import {AppShell, Burger,Loader, rem} from '../../node_modules/@mantine/core';
 import Navbar from "@/app/components/Navbar";
 import MyModal from "@/app/components/MyModal";
 import React, {useEffect} from "react";
-import {Loader} from "@mantine/core";
 import {useAppDispatch, useAppSelector} from "@/app/store/hooks";
 import {getGenres} from "@/app/store/movie/movieSlice";
-import { useDisclosure } from '@mantine/hooks';
+import { useDisclosure } from '../../node_modules/@mantine/hooks';
 
 const Home = ({children,}: Readonly<{
   children: React.ReactNode;
