@@ -28,7 +28,7 @@ const Dropdown = (
 const dispatch = useAppDispatch();
     const [select, setSelect] = useState(false);
 
-    const handleClick = (e) => {
+    const handleClick = (e:string[] | React.ChangeEvent<HTMLInputElement>) => {
       if (onChange) {
         onChange(e);
         dispatch(setGenres(e));
