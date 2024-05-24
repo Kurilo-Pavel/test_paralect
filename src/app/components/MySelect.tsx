@@ -1,6 +1,5 @@
 import {Select,Image} from '@mantine/core';
 import React, {useState} from "react";
-import "@/app/components/dropdown.css";
 import {useAppDispatch} from "@/app/store/hooks";
 import {setSort, setReleaseYear, setPage} from "@/app/store/movie/movieSlice";
 
