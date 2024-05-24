@@ -49,7 +49,6 @@ const dispatch = useAppDispatch();
           input: {padding: "6px 10px", gap: "5px"},
           inputField: {letterSpacing: "-0.9px"},
           pillsList: {gap: "5px"},
-          rightSection: {left: "-2px"}
         }}
         classNames={{
           pill: "myMultiSelectPill",
