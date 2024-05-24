@@ -1,4 +1,3 @@
-import classes from "@/app/components/dropdown.css";
 import {MultiSelect} from '@mantine/core';
 import React, {useState} from "react";
 import {useAppDispatch} from "@/app/store/hooks";
@@ -27,11 +26,9 @@ const Dropdown = (
       DropdownProps
   ) => {
 const dispatch = useAppDispatch();
-    // const [data, setData] = useState([]);
     const [select, setSelect] = useState(false);
 
     const handleClick = (e) => {
-      // setData(e);
       if (onChange) {
         onChange(e);
         dispatch(setGenres(e));
@@ -55,11 +52,11 @@ const dispatch = useAppDispatch();
           rightSection: {left: "-2px"}
         }}
         classNames={{
-          pill: classes.mantineMultiSelectPill,
-          input: classes.mantineMultiSelectInput,
-          option: classes.mantineMultiSelectOption,
-          pillsList: classes.mantineMultiSelectPillsList,
-          section: classes.mantineMultiSelectSection,
+          pill: "myMultiSelectPill",
+          input: "myMultiSelectInput",
+          option: "myMultiSelectOption",
+          pillsList: "myMultiSelectPillsList",
+          section: "myMultiSelectSection",
         }}
         hiddenInputValuesDivider
         checkIconPosition="right"
@@ -67,13 +64,11 @@ const dispatch = useAppDispatch();
         radius="md"
         size="md"
         onChange={handleClick}
-        // value={data}
         withCheckIcon={false}
         maxDropdownHeight={200}
         onDropdownOpen={() => setSelect(true)}
         onDropdownClose={() => setSelect(false)}
       />
-
     )
   }
 ;

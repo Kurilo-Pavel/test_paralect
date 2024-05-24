@@ -26,6 +26,46 @@
   font-family: Inter;
 }
 
+.myMultiSelectPill {
+  background: none;
+  padding: 0;
+}
+
+.myMultiSelectPill > button {
+  display: none;
+}
+
+.myMultiSelectPill::after {
+  content: ",";
+}
+
+.myMultiSelectPillsList > span:last-of-type::after {
+  content: "";
+}
+
+.myMultiSelectInput:focus-within {
+  border: 1px solid var(--purple_500_main) !important;
+}
+
+.myMultiSelectOption {
+  padding-left: 6px;
+  font-size: 14px;
+}
+
+.myMultiSelectOption:hover {
+  background-color: var(--purple_100);
+}
+
+.myMultiSelectOption:active {
+  background-color: var(--purple_500_main);
+  color: var(--white);
+}
+
+.myMultiSelectSection[data-position='right'] > img {
+  position: relative;
+  left: -3px;
+}
+
 .searchForm {
   display: flex;
   justify-content: flex-end;

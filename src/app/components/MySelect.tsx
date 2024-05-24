@@ -1,6 +1,6 @@
 import {Select,Image} from '@mantine/core';
 import React, {useState} from "react";
-import classes from "@/app/components/dropdown.css";
+import "@/app/components/dropdown.css";
 import {useAppDispatch} from "@/app/store/hooks";
 import {setSort, setReleaseYear, setPage} from "@/app/store/movie/movieSlice";
 
@@ -57,11 +57,11 @@ const MySelect = (
         rightSection: {left: "-2px"}
       }}
       classNames={{
-        pill: classes.mantineMultiSelectPill,
-        input: classes.mantineMultiSelectInput,
-        option: classes.mantineMultiSelectOption,
-        pillsList: classes.mantineMultiSelectPillsList,
-        section: classes.mantineMultiSelectSection,
+        pill: "myMultiSelectPill",
+        input: "myMultiSelectInput",
+        option: "myMultiSelectOption",
+        pillsList: "myMultiSelectPillsList",
+        section: "myMultiSelectSection",
       }}
       checkIconPosition="right"
       data-with-remove={true}

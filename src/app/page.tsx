@@ -1,5 +1,5 @@
 "use client";
-import {Title, Space, Flex, Grid, Button, Loader} from '@mantine/core';
+import {Title, Space, Flex, Grid, Button} from '@mantine/core';
 import Dropdown from "@/app/components/Dropdown";
 import {useForm} from '@mantine/form';
 import MyNumberInput from "@/app/components/MyNumberInput";
