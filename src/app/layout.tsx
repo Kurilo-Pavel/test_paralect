@@ -1,7 +1,7 @@
 import type {Metadata} from "next";
 import "./globals.css";
-import '@mantine/core/styles.css';
-import '@mantine/dates/styles.css';
+import "../../mantine/core/styles.css";
+import "../../mantine/dates/styles.css";
 import React from "react";
 import {ColorSchemeScript, MantineProvider} from '@mantine/core';
 import App from "@/app/App";

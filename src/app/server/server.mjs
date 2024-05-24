@@ -42,7 +42,6 @@ server.post("/movies/:sortMovie/:page", express.json({type: "*/*"}), (request, r
   const ratingFrom = request.body.ratingFrom && !validate(request.body.ratingFrom, request.body.ratingTo, true) ? `&vote_average.gte=${request.body.ratingFrom}` : "";
   const ratingTo = request.body.ratingTo && !validate(request.body.ratingTo, request.body.ratingFrom, false) ? `&vote_average.lte=${request.body.ratingTo}` : "";
   const url = `https://api.themoviedb.org/3/discover/movie?include_adult=false&include_video=false&language=en-US&page=${page}${sortMovie}${ratingFrom}${ratingTo}${genres}${year}`;
-  console.log(url);
   (!validate(request.body.ratingFrom, request.body.ratingTo, true) && !validate(request.body.ratingTo, request.body.ratingFrom, false)) ?
     fetch(url, options)
       .then(res => res.json())
