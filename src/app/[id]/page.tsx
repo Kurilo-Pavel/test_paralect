@@ -10,7 +10,7 @@ import NotFound from "@/app/not-found"
 const Page = ({params}: { params: { id: string } }) => {
   const dispatch = useAppDispatch();
   const movieInform = useAppSelector(state => state.movie.movieInform);
-  const id = (decodeURI(params.id) * 1) as number;
+  const id = Number(decodeURI(params.id));
 
   useEffect(() => {
     dispatch(getMovie(id));
