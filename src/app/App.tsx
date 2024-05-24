@@ -35,7 +35,7 @@ const Home = ({children,}: Readonly<{
       />
       <AppShell.Navbar p="24px">
 
-        <Navbar className="navbar"/>
+        <Navbar/>
       </AppShell.Navbar>
 
       <AppShell.Main
