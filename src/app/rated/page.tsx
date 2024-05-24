@@ -6,11 +6,8 @@ import {useEffect, useState} from "react";
 import {useAppSelector} from "@/app/store/hooks";
 import RatedEmpty from "@/app/components/RatedEmpty";
 
-type RatedProps = {
-  open: () => void;
-}
 
-const Page = ({open}: RatedProps) => {
+const Page = () => {
   const isModal = useAppSelector(state => state.movie.isModal);
   const [allRatedMovies, setAllRatedMovies] = useState([]);
   const [value, setValue] = useState("");

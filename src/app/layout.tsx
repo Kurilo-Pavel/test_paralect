@@ -11,7 +11,6 @@ export const metadata: Metadata = {
   description: "Test Paralect",
 };
 
-
 const RootLayout = ({children}: Readonly<{
   children: React.ReactNode;
 }>) => {
