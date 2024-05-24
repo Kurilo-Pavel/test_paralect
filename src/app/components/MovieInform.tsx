@@ -11,26 +11,15 @@ type MovieInformProps = {
   videos: {
     results:
       {
-        iso_639_1: string;
-        iso_3166_1: string;
         name: string;
         key: string;
         site: string;
-        size: number;
-        type: string;
-        official: boolean
-        published_at: string;
         id: string;
       }[]
   };
 }
 const MovieInform = ({production_companies, videos, overview}: MovieInformProps) => {
 
-  const production = [
-    {image: "./pr_1.svg", name: "Castle Rock Entertainment"},
-    {image: "", name: "Darkwoods Productions"},
-    {image: "./pr_2.svg", name: "Warner Bros. Pictures"}
-  ];
   return (
     <Flex p="24px" direction="column" gap="20px" w="100%"
           styles={{
