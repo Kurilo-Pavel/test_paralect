@@ -1,0 +1,25 @@
+.mantine-Modal-header {
+  border-bottom: 1px solid var(--grey_200);
+  padding: 16px;
+  height: 22px;
+}
+
+.modal_body {
+  padding: 16px;
+}
+
+.modal_close {
+  position: absolute;
+  right: 11px;
+  justify-content: flex-end;
+  align-items: start;
+}
+
+.modal_close:focus-visible {
+  border: none;
+  outline: none;
+}
+
+.modal_close > svg {
+  width: 16px;
+}
