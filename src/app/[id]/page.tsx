@@ -6,10 +6,11 @@ import React, {useEffect} from "react";
 import {useAppDispatch, useAppSelector} from "@/app/store/hooks";
 import {getMovie} from "@/app/store/movie/movieSlice";
 import NotFound from "@/app/not-found"
+
 const Page = ({params}: { params: { id: string } }) => {
   const dispatch = useAppDispatch();
   const movieInform = useAppSelector(state => state.movie.movieInform);
-  const id = decodeURI(params.id);
+  const id = decodeURI(params.id)*1;
 
   useEffect(() => {
     dispatch(getMovie(id));
