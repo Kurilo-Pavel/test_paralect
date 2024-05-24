@@ -5,7 +5,7 @@ import MyModal from "@/app/components/MyModal";
 import React, {useEffect} from "react";
 import {useAppDispatch, useAppSelector} from "@/app/store/hooks";
 import {getGenres} from "@/app/store/movie/movieSlice";
-import { useDisclosure } from '/@mantine/hooks';
+import { useDisclosure } from '@mantine/hooks';
 
 const Home = ({children,}: Readonly<{
   children: React.ReactNode;
