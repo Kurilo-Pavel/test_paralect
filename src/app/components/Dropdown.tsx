@@ -57,7 +57,6 @@ const dispatch = useAppDispatch();
           pillsList: "myMultiSelectPillsList",
           section: "myMultiSelectSection",
         }}
-        hiddenInputValuesDivider
         checkIconPosition="right"
         data-with-remove={true}
         radius="md"
