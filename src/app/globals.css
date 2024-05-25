@@ -128,7 +128,7 @@
 
 @media (max-width: 1400px) {
   .blockCards {
-    grid-template-columns: 1fr;
+    grid-template-columns: 1fr !important;
   }
 }
 

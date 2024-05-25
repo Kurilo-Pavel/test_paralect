@@ -187,7 +187,7 @@ const Movies = () => {
         {!data.loader && <BlockCards
           cards={data.movies.results}
         />}
-        {(data.movies.results.length === 0 && data.movies.page === 0) && <EmptyBlock/>}
+        {(data.movies.results.length === 0 && data.movies.page <= 1) && <EmptyBlock/>}
         {(!data.loader && data.movies.total_pages >= 2) && <MyPagination
           pages={data.movies.total_pages}
           type="movies"
